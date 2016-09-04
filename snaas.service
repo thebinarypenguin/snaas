@@ -1,0 +1,16 @@
+[Unit]
+Description=Silly Names as a Service (an example systemd service)
+
+[Service]
+ExecStart=/usr/bin/node /opt/snaas/server.js
+WorkingDirectory=/opt/snaas/
+User=snaas
+Group=snaas
+Environment="PORT=1337"
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=SNAAS
+
+[Install]
+WantedBy=multi-user.target
